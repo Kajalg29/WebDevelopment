@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add, Delete, Access properties and methods to object</title>
+</head>
+<body>
+    <script>
+        //Literal Method
+        var Product={name: "Laptop", id:123456};
+        /*var Product={};
+        Product['name']="Laptop"; //Product.name="Laptop";
+        Product['id']=123456; //Product.id=123456;
+        */
+        
+        console.log(Product)
+        Product.price=35000; //adding price property
+        console.log(Product)
+        //document.write(Product.name+" "+Product.id+" "+Product.price); //accessing object
+        document.write(Product['name']+" "+Product['id']+" "+Product['price']+"<br>"); //accessing object
+        delete Product.id; //delete id property
+        console.log(Product);
+        Product.company=function(){
+            return ("Dell");
+        }
+       // document.write(Product.company()+"<br>");
+       document.write(Product['name']+" "+Product['id']+" "+Product['price']+" "+Product['company']()+"<br>"); //id deleted so display undefined for id
+
+        //Constructor Method
+        var Product1=new Object();
+        Product1['name1']="Mobile";
+        Product1['id1']=456893;
+        Product1['Model']=function(){return ("Samsung")};
+        document.write(Product1.name1+" "+Product1.id1+" "+Product1.Model()); //accessing
+        delete Product1.name1; // deleted
+        console.log(Product1);
+        Product1.price1=18000; //adding
+        console.log(Product1);
+
+        
+    </script>
+</body>
+</html>

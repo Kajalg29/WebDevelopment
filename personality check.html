@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Personality</title>
+    <style>
+        #div1{
+           background-color: pink; 
+           text-align: center;
+           margin: 80px;
+           margin-bottom: 0%;
+           padding-top: 20px;
+           padding-bottom: 20px;
+        }
+        button{
+            color: white;
+            background-color: rgb(56, 56, 148);
+            size: 50px;
+        }
+        #div2{
+           background-color: rgb(123, 171, 235); 
+           text-align: center;
+           margin: 80px;
+           margin-top: 0px;
+           padding-top: 20px;
+           padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <input  type="text" id="name"/><br><br>
+        <button onclick="test()">How's your Personality</button>
+    </div>
+    <div id="div2">
+        <p id="demo"></p>
+        <p id="demoper"></p>
+    </div>
+    <script>
+        var arr=["You are clever person","Your are awesome","You are brave","You are kind person"];
+        var percent=['85%','90%', '80%','60%'];
+        function test(){
+        var t=document.getElementById('name').value;
+        var random=arr[Math.floor(Math.random()*arr.length)];
+        var randomper=percent[Math.floor(Math.random()*percent.length)];
+        if(t==''){
+            alert("Heyyy!!! Name must be enter")
+        }
+        else{
+        document.getElementById('demo').innerHTML=random;
+        document.getElementById('demoper').innerHTML=randomper;
+        }
+        
+
+        }
+        
+    </script>
+</body>
+</html>

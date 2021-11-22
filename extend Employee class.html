@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extend Class</title>
+</head>
+<body>
+    <script>
+        class Employee{
+            constructor(salary){
+                this.E_name="Rahul";
+                this.E_id=123654;
+                this.sal=salary;
+                }
+            }
+        
+        class Manager extends Employee{
+            constructor(salary){
+                super(salary);
+                this.M_name="Sagar";
+                this.M_id=789456;
+                this.Msal=salary;
+            }
+        }
+        class Admin extends Employee{
+            constructor(salary){
+                super(salary);
+                this.A_name="Akash";
+                this.A_id=852369;
+                this.Asal=salary;
+            }
+        }
+
+        var Emp=new Employee();
+        document.write(Emp.E_name+"<br>");
+        //document.write(Emp.salary()+"<br>");
+      //  document.write(Emp.M_id+"<br>"); //undefined
+
+        var Man=new Manager(5000);
+        document.write(Man.M_name+"<br>");
+        document.write(Man.sal)
+
+        var Adm=new Admin(3330);
+        document.write(Adm.A_name);
+        document.write(Adm.Asal)
+    </script>
+</body>
+</html>

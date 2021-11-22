@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check given elemenet is in array or not</title>
+</head>
+<body>
+    <script>
+        var flag=0
+        var arr=["Hello","Javascript","CSS","html"];
+        for(i=0;i<arr.length;i++){
+            if(arr[i]=="html"){
+              //  document.write("yes");
+                flag=1;
+               
+            }
+            else{
+                flag=0;
+               // document.write("not found");
+            }
+        }
+        if(flag==1){
+            document.write("Yes");
+        }
+        else{
+            document.write("Not found");
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display form input</title>
+    <style>
+        .btn {
+            width: 300px;
+            background-color: gray;
+            color: white;
+        }
+
+        #table {
+            float: right;
+            text-align: center;
+            /* background-color: yellow; */
+            width: 50%;
+
+
+        }
+
+        #div1 {
+            width: 50%;
+            /* background-color: violet; */
+            display: inline-block;
+        }
+
+        /* #tbl, tr{
+          border: 1px solid gray;
+      } */
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <input type="button" value="Add Employee" onclick="addEmployee();" class="btn"><br><br>
+        <input type="button" value="Double Salary" onclick="doubleSalary();" class="btn"><br><br>
+        <input type="button" value="Show Salary >50000" onclick="showSalary();" class="btn"><br><br>
+        <input type="button" value="Sort by Descending" onclick="Sort();" class="btn"><br><br>
+        <input type="button" value="Calculate Salary Of All" onclick="calculate();" class="btn"><br><br>
+    </div>
+    <div id="table">
+        <table style="width: 200px;" id="tbl">
+            <tr>
+                <th>Employee</th>
+                <th>Salary</th>
+            </tr>
+        </table><br><br>
+        <span id="spn" style="float: left;"></span>
+    </div>
+    
+   
+    <script>
+        var arr = [{ "name": "Mr.Sachin", "Salary": "20000" },
+        { "name": "Mr.santosh", "Salary": "45000" },
+        { "name": "Mr.Satyam", "Salary": "60000" },
+        { "name": "Mr.Shivam", "Salary": "40000" },
+        { "name": "Mr.Sai", "Salary": "40000" },
+        { "name": "Mr.Sakshi", "Salary": "28000" }];
+        var count = 0, table=0;
+        function addEmployee() {
+            if (count < arr.length) {
+                 table = document.getElementById("tbl");
+                var tr = document.createElement("tr");
+                var nametd = document.createElement("td");
+                nametd.setAttribute("class","name")
+                nametd.innerHTML = arr[count].name;
+                tr.appendChild(nametd);
+                table.appendChild(tr)
+
+                var saltd = document.createElement("td");
+                saltd.setAttribute("class", "sal")
+                saltd.innerHTML = arr[count].Salary;
+                tr.appendChild(saltd);
+                table.appendChild(tr)
+                count++;
+            }
+        }
+        
+        function doubleSalary() {
+            var s=document.getElementsByClassName('sal');
+            // console.log(s)
+            var i = 0;
+        while(s[i] != undefined){
+            // console.log(s[i].innerHTML); 
+            var cell=s[i].innerHTML;
+           // console.log(cell)
+            var dblsal=cell*2
+            s[i].innerHTML=dblsal;
+            // console.log(dblsal)
+            i++;
+            }
+           
+        }
+        function showSalary(){
+            var s=document.getElementsByClassName('sal');
+            var n=document.getElementsByClassName('name')
+            var i = 0;
+        while(s[i] != undefined){
+            var cell=s[i].innerHTML;
+            if(cell<50000){
+                s[i].removeChild(s[i].childNodes[0]);
+                n[i].removeChild(n[i].childNodes[0]);
+            }
+            i++;
+            } 
+        }
+
+        function Sort(){
+            var s=document.getElementsByClassName('sal');
+            var i=0;
+            while(s[i] != undefined)
+            {
+                //console.log(s[i]) 
+           arr.sort(function(a,b){
+                // var nameA=a.name.toUpperCase();
+                // var nameB=b.name.toUpperCase();
+                var sal1=a.Salary;
+                var sal2=b.Salary;
+                if(sal1<sal2){
+                    return -1;
+                }
+                if(sal1>sal2){
+                    return 1;
+                }
+                return 0;
+            });
+            i++;
+        }
+        
+    }
+        function calculate(){
+           var sum=0;
+           table=document.getElementById('tbl');
+         //  console.log(table)
+         for(var i=1; i<table.rows.length;i++){
+             sum=sum+parseInt(table.rows[i].cells[1].innerHTML)
+         }
+         // console.log(sum) 
+         document.getElementById("spn").innerHTML="Grand Total= "+sum;
+           
+        }
+ 
+    </script>
+
+</body>
+
+</html>

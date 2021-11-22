@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+    <style>
+       *{
+           margin: 0;
+           padding: 0;
+       }
+       ul{
+           list-style: none;
+           /* position:absolute; */
+       }
+       ul li{
+           float: left;
+           margin-top:5px ;
+           margin-right: 1px;
+       }
+       ul li a{
+           width: 150px;
+           /* max-width: 500px; */
+           color: white;
+           display: block;
+           text-decoration: none;
+           background-color: green;
+           text-align: center;
+           padding: 5px;
+       }
+       a:hover{
+           background: lightgreen
+       }
+       ul li ul li{
+           float: none;
+       }
+       ul li ul{
+           display: none;
+       }
+       ul li:hover ul{
+           display: block;
+       }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Courses</a>
+        <ul>
+          <li><a href="#">Web</a></li>
+          <li><a href="#">Android</a></li>
+          <li><a href="#">PHP</a></li>
+          <li><a href="#">IOS</a></li>
+          <li><a href="#">Java</a></li>
+        </ul>
+    </li>
+    </ul>
+</body>
+</html>

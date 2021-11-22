@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check last digit of 3 numbers is same or not</title>
+</head>
+<body>
+    <script>
+        var digit;
+        var a, b, c;
+        function lastDigit(num){
+            digit=num%10;
+            return digit;
+        }
+        a=lastDigit(23);
+        b=lastDigit(23);
+        c=lastDigit(23)
+        if(a==b && a==c && b==c){
+            document.write("same")
+        }
+        else{
+            document.write("not same");
+        }
+        
+    </script>
+</body>
+</html>

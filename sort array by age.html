@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort array by age</title>
+</head>
+<body>
+    <script>
+        var employee=[
+            {name:"Rohan", age:20},
+            {name:"Mohan", age:25},
+            {name:"Tina", age:21}
+        ];
+        var temp;
+       for(i=0;i<employee.length;i++){
+        for(j=i+1;j<employee.length;j++){
+          // document.write(employee[i].age+"<br>")
+          if(employee[i].age>employee[j].age){
+            temp=employee[i].age;
+            employee[i].age=employee[j].age;
+            employee[j].age=temp;
+          }
+        } 
+       }
+       for(var key in employee){
+           document.write(employee[key].age)
+       }
+       console.log(employee)
+    </script>
+</body>
+</html>

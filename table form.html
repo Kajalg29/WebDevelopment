@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <form style="background-color: aqua;"> 
+    <table border="2" width="50%" align="center" >
+        <tr>
+            <th colspan="2"><h1 align="center">Student Registration Form</h1></th>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="name" id="name"> </td>
+        </tr>
+        <tr>
+            <td>Father Name</td>
+            <td><input type="text" name="fname" id="fname"></td>
+        </tr>
+        <tr>
+            <td>Postal Address</td>
+            <td><input type="text" name="add1" id="add1"></td>
+        </tr>
+        <tr>
+            <td>Personal Address</td>
+            <td><input type="text" name="add2" id="add2"></td>
+        </tr>
+        <tr>
+            <td>Sex</td>
+            <td><input type="radio" name="sex">Male <input type="radio" name="sex" >Female</td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td><select>
+                <option>Select</option>
+                <option>Pune</option>
+                <option>Mumbai</option>
+                <option>Delhi</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>Course</td>
+            <td><select>
+                <option>Select</option>
+                <option>MCS</option>
+                <option>BCS</option>
+                <option>MCA</option>
+                <option>MA</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>District</td>
+            <td><select>
+                <option>Select</option>
+                <option>Satara</option>
+                <option>Kolhapur</option>
+                <option>Nagpur</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td><select>
+                <option>Select</option>
+                <option>Maharashtra</option>
+                <option>UttarPradesh</option>
+                <option>Himachal Pradesh</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>PinCode</td>
+            <td><input type="number" name="pin" maxlength="6"></td>
+        </tr>
+        <tr>
+            <td>EmailId</td>
+            <td><input type="email" name="email" ></td>
+        </tr>
+        <tr>
+            <td>DOB</td>
+            <td><input type="date" name="date"></td>
+        </tr>
+        <tr>
+            <td>Mobile No.</td>
+            <td><input type="number" name="mob" maxlength="10"></td>
+        </tr>
+        <tr>
+            <td><button value="reset">Reset</button></td>
+            <td><button value="submit">Submit Form</button></td>
+        </tr>
+    </table>
+</form>
+    </body>
+</html>

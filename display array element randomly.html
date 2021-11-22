@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create random number and display elemenet randomly</title>
+</head>
+<body>
+    <script>
+         var arr=[1,2,true,3,"red"];
+        var random=arr[Math.floor(Math.random()*arr.length)];
+        document.write(random)
+        //console.log(Math.random())
+       //Math.random() will generate the value between 0 to1; if we get 0.123 multiply with length
+       //Math.floor() will downgrade the value tp the nearest integer; then it will round downgrade the decimal number to integer
+    </script>
+</body>
+</html>

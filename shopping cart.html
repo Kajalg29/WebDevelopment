@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <!-- <script src="shopping cart.js"></script> -->
+    <style>
+        .inv {
+            border: hidden;
+            background-color: white;
+            font-weight: bolder;
+            font-size: medium;
+        }
+
+        table {
+            text-align: center;
+            border-radius: 10px;
+
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        button {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="float: left; width: 50%; text-align: center;">
+        <table border="8px solid gray" width="70%">
+            <tr>
+                <th>Sr.No.</th>
+                <th>Input</th>
+                <th>Price</th>
+                <th colspan="3">Quality</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>T-shirt</td>
+                <td id="p1">299</td>
+                <td id="a1"></td>
+                <td><button class="inv" onclick="addItem1();">+</button></td>
+                <td><button class="inv" onclick="removeItem1();">-</button></td>
+                <td id="r1" value=0>0</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Shirt</td>
+                <td id="p2">599</td>
+                <td id="a2"></td>
+                <td><button id="add2" class="inv" onclick="addItem2();">+</button></td>
+                <td><button class="inv" onclick="removeItem2();">-</button></td>
+                <td id="r2" value=0>0</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Jeans</td>
+                <td id="p3">899</td>
+                <td id="a3"></td>
+                <td><button class="inv" onclick="addItem3(); grandTotal();">+</button></td>
+                <td><button class="inv" onclick="removeItem3();">-</button></td>
+                <td id="r3" value=0>0</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Jacket</td>
+                <td id="p4">1200</td>
+                <td id="a4"></td>
+                <td><button class="inv" onclick="addItem4();grandTotal();">+</button></td>
+                <td><button class="inv" onclick="removeItem4();">-</button></td>
+                <td id="r4" value=0>0</td>
+            </tr>
+            <tr>
+                <td colspan="2">Grand Total</td>
+                <td colspan="4" id="gtotal">0</td>
+                <td></td>
+            </tr>
+        </table><br><br>
+        <button id="chkbtn" onclick="checkOut();">Checkout</button>
+    </div>
+    <div id="d2" style="float: right; width: 50%;">
+
+    </div>
+    <div id="rating" style="float: right; width: 80%;text-align: center;">
+        <h3 id="ratingTxt">Please Rate the App</h3>
+        <button class="inv" id="angry" style='font-size:40px;' onclick="angryFun();">&#128544;</button>
+        <button class="inv" id="sad" style='font-size:40px;' onclick="sadFun();">&#128542;</button>
+        <button class="inv" id="neutral" style='font-size:40px;' onclick="neutralFun();">&#128528;</button>
+        <button class="inv" id="smile" style='font-size:40px;' onclick="smileFun();">&#128515;</button>
+        <button class="inv" id="heart" style='font-size:40px;' onclick="heartFun();">&#128525;</button>
+    </div>
+    <script>
+        var counter1 = 0, counter2 = 0; counter3 = 0; counter4 = 0;
+        function addItem1() {
+            var total1 = document.getElementById('p1').innerText;
+            // console.log(total1)
+            counter1 = counter1 + 1;
+            document.getElementById('a1').innerText = counter1;
+            var tt1 = counter1 * total1
+            document.getElementById('r1').innerText = tt1;
+            //  disp1=document.getElementById('r1').textContent; 
+            // console.log(disp1)
+            grandTotal();
+        }
+        function addItem2() {
+            var total2 = document.getElementById('p2').innerText;
+            // console.log(total1)
+            counter2 = counter2 + 1;
+            document.getElementById('a2').innerText = counter2;
+            var disp2 = document.getElementById('r2').innerText = counter2 * total2;
+            grandTotal();
+        }
+        function addItem3() {
+            var total3 = document.getElementById('p3').innerText;
+            // console.log(total1)          
+            counter3 = counter3 + 1;
+            document.getElementById('a3').innerText = counter3;
+            var disp3 = document.getElementById('r3').innerText = counter3 * total3;
+            grandTotal();
+
+        }
+        function addItem4() {
+            var total4 = document.getElementById('p4').innerText;
+            // console.log(total1)
+            counter4 = counter4 + 1;
+            document.getElementById('a4').innerText = counter4;
+            var displ4 = document.getElementById('r4').innerText = counter4 * total4;
+            grandTotal();
+        }
+        function removeItem1() {
+
+            var rtotal1 = document.getElementById('p1').textContent;
+            // console.log(rtotal1)
+            if (counter1 != 0) {
+                counter1 = counter1 - 1;
+                // console.log(counter1)
+                document.getElementById('a1').innerHTML = counter1;
+                document.getElementById('r1').innerHTML = counter1 * rtotal1;
+                grandTotalMinus(rtotal1);
+            }
+        }
+        function removeItem2() {
+            var rtotal2 = document.getElementById('p2').textContent;
+            // console.log(rtotal1)
+            if (counter2 != 0) {
+                counter2 = counter2 - 1;
+                // console.log(counter1)
+                document.getElementById('a2').innerHTML = counter2;
+                document.getElementById('r2').innerHTML = counter2 * rtotal2;
+                grandTotalMinus(rtotal2)
+            }
+
+        }
+        function removeItem3() {
+            var rtotal3 = document.getElementById('p3').textContent;
+            // console.log(rtotal1)
+            if (counter3 != 0) {
+                counter3 = counter3 - 1;
+                // console.log(counter1)
+                document.getElementById('a3').innerHTML = counter3;
+                document.getElementById('r3').innerHTML = counter3 * rtotal3;
+                grandTotalMinus(rtotal3);
+            }
+
+        }
+        function removeItem4() {
+            var rtotal4 = document.getElementById('p4').textContent;
+            // console.log(rtotal1)
+            if (counter4 != 0) {
+                counter4 = counter4 - 1;
+                // console.log(counter1)
+                document.getElementById('a4').innerHTML = counter4;
+                document.getElementById('r4').innerHTML = counter4 * rtotal4;
+                grandTotalMinus(rtotal4)
+            }
+        }
+
+        function checkOut() {
+            var d = document.getElementById('d2');
+            var para = document.createElement('p');
+            para.textContent = "Select your Method of payment";
+            d.appendChild(para);
+            var cashBtn = document.createElement('button');
+            var cardBtn = document.createElement('button')
+            cashBtn.textContent = "Cash";
+            cardBtn.textContent = "Card"
+            d.appendChild(cashBtn);
+            d.appendChild(cardBtn);
+            cashBtn.addEventListener('click', function cash() {
+                var EnterAmt = document.createElement('p');
+                EnterAmt.textContent = "Enter amount"
+                var inputAmt = document.createElement('input');
+                inputAmt.id = "amt";
+                // inputAmt.value="0";
+                inputAmt.type = "text";
+                var doneBtn = document.createElement('button');
+                doneBtn.textContent = "Done";
+                d.appendChild(EnterAmt);
+                d.appendChild(inputAmt);
+                d.appendChild(doneBtn);
+                //var getCash=document.getElementById('amt').value;
+
+                doneBtn.addEventListener('click', function doneAmt() {
+                    //   console.log(total-(document.getElementById('amt').value));
+                    var remaining = document.createElement('p');
+                    var remainTotal = total - (document.getElementById('amt').value);
+                    remaining.innerHTML = "Please pay remaining amount " + remainTotal + " by CARD";
+                    d.appendChild(remaining);
+                });
+            })
+
+        }
+
+
+        var total = 0;
+
+        function grandTotal() {
+            var disp1 = parseInt(document.getElementById('r1').innerText)
+            // console.log(typeof(disp1))
+            var disp2 = parseInt(document.getElementById('r2').innerText);
+            // console.log(disp2)
+            var disp3 = parseInt(document.getElementById('r3').innerText);
+            var disp4 = parseInt(document.getElementById('r4').innerText);
+            total = Number(disp1) + Number(disp2) + Number(disp3) + Number(disp4);
+            document.getElementById('gtotal').innerText = total;
+        }
+        function grandTotalMinus(price) {
+            total = total - price;
+            document.getElementById('gtotal').innerText = total;
+        }
+
+        function angryFun() {
+            var angryh3 = document.getElementById('ratingTxt');
+            var angrybtn1 = document.getElementById('angry');
+            var angrybtn2 = document.getElementById('sad');
+            var angrybtn3 = document.getElementById('neutral');
+            var angrybtn4 = document.getElementById('smile');
+            var angrybtn5 = document.getElementById('heart');
+            angrybtn1.style.fontSize = "90px";
+            angrybtn2.style.display = "none";
+            angrybtn3.style.display = "none";
+            angrybtn4.style.display = "none";
+            angrybtn5.style.display = "none";
+            angryh3.textContent = "Thank You for Your Rating";
+        }
+        function sadFun() {
+            var sadh3 = document.getElementById('ratingTxt');
+            var sadbtn1 = document.getElementById('angry');
+            var sadbtn2 = document.getElementById('sad');
+            var sadbtn3 = document.getElementById('neutral');
+            var sadbtn4 = document.getElementById('smile');
+            var sadbtn5 = document.getElementById('heart');
+            sadbtn1.style.display = "none";
+            sadbtn2.style.fontSize = "90px";
+            sadbtn3.style.display = "none";
+            sadbtn4.style.display = "none";
+            sadbtn5.style.display = "none";
+            sadh3.textContent = "Thank You for Your Rating";
+        }
+        function neutralFun() {
+            var neuh3 = document.getElementById('ratingTxt');
+            var neubtn1 = document.getElementById('angry');
+            var neubtn2 = document.getElementById('sad');
+            var neubtn3 = document.getElementById('neutral');
+            var neubtn4 = document.getElementById('smile');
+            var neubtn5 = document.getElementById('heart');
+            neubtn1.style.display = "none";
+            neubtn2.style.display = "none";
+            neubtn3.style.fontSize = "90px";
+            neubtn4.style.display = "none";
+            neubtn5.style.display = "none";
+            neuh3.textContent = "Thank You for Your Rating";
+        }
+        function smileFun() {
+            var smileh3 = document.getElementById('ratingTxt');
+            var smilebtn1 = document.getElementById('angry');
+            var smilebtn2 = document.getElementById('sad');
+            var smilebtn3 = document.getElementById('neutral');
+            var smilebtn4 = document.getElementById('smile');
+            var smilebtn5 = document.getElementById('heart');
+            smilebtn1.style.display = "none";
+            smilebtn2.style.display = "none";
+            smilebtn3.style.display = "none";
+            smilebtn4.style.fontSize = "90px";
+            smilebtn5.style.display = "none";
+            smileh3.textContent = "Thank You for Your Rating";
+        }
+        function heartFun() {
+            var hearth3 = document.getElementById('ratingTxt');
+            var heartbtn1 = document.getElementById('angry');
+            var heartbtn2 = document.getElementById('sad');
+            var heartbtn3 = document.getElementById('neutral');
+            var heartbtn4 = document.getElementById('smile');
+            var heartbtn5 = document.getElementById('heart');
+            heartbtn1.style.display = "none";
+            heartbtn2.style.display = "none";
+            heartbtn3.style.display = "none";
+            heartbtn4.style.display = "none";
+            heartbtn5.style.fontSize = "90px";
+            hearth3.textContent = "Thank You for Your Rating";
+        }
+
+    </script>
+</body>
+
+</html>

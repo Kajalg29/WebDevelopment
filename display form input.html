@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display form input</title>
+    <style>
+        #d1 {
+            width: 50%;
+            /* background-color: yellow; */
+            float: left;
+        }
+
+        #d2 {
+            /* background: pink; */
+            float: right;
+            margin: 0px;
+            width: 50%;
+        }
+
+        #fp,
+        #lp,
+        #p1,
+        #m1,
+        #n1 {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d1">
+        <input type="text" id="fname" placeholder="FirstName*"><br>
+        <p id="fp"></p>
+        <input type="text" id="lname" placeholder="LastName*"><br>
+        <p id="lp"></p>
+        <input type="password" id="pass" placeholder="Password*"><br>
+        <p id="p1"></p>
+        <input type="email" id="mail" placeholder="Email*"><br>
+        <p id="m1"></p>
+        <input type="number" id="num" placeholder="PhoneNumber*"><br>
+        <p id="n1"></p>
+        <button id="add" onclick="display()">Submit</button>
+        <button id="del" onclick="deletedata()">Delete</button>
+    </div>
+    <div id="d2">
+
+    </div>
+    <script>
+        function display() {
+            var fn = document.getElementById('fname').value;
+            var ln = document.getElementById('lname').value;
+            var p = document.getElementById('pass').value;
+            var m = document.getElementById('mail').value;
+            var n = document.getElementById('num').value;
+            var passwordcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
+            var emailcheck = /^[A-Za-z_.]{6,}@[A-Za-z]{4,}[.]{1}[A-Za-z.]{2,}$/;
+            var mobilecheck = /^[36789]{1}[0-9]{9}$/;
+            var namecheck = /^[A-Za-z]+$/;
+
+
+
+            if (fn == '' || ln == '' || p == '' || m == '' || n == '') {
+                alert("enter data")
+            }
+            else {
+               // console.log(fn)
+                var dd = document.getElementById("d2");
+                var df = document.createDocumentFragment();
+                var divv = document.createElement('div')
+                var p1 = document.createElement('p');
+                var ct = document.createTextNode(fn);
+                var p2 = document.createElement('p');
+                var ct2 = document.createTextNode(ln);
+                var p3 = document.createElement('p');
+                var ct3 = document.createTextNode(p);
+                var p4 = document.createElement('p');
+                var ct4 = document.createTextNode(m);
+                var p5 = document.createElement('p');
+                var ct5 = document.createTextNode(n);
+                if (namecheck.test(fn)) {
+                    document.getElementById('fp').innerHTML = "";
+                    p1.appendChild(ct);
+                    df.appendChild(p1);
+                }
+                else {
+                    document.getElementById('fp').innerHTML = "enter correct Fisrt Name";
+                }
+                if (namecheck.test(ln)) {
+                    document.getElementById('lp').innerHTML = "";
+                    p2.appendChild(ct2);
+                    df.appendChild(p2);
+                }
+                else {
+                    document.getElementById('lp').innerHTML = "enter correct Last Name";
+                }
+                if (passwordcheck.test(p)) {
+                    document.getElementById('p1').innerHTML = "";
+                    p3.appendChild(ct3);
+                    df.appendChild(p3);
+                }
+                else {
+                    document.getElementById('p1').innerHTML = "enter correct password"
+                }
+                if (emailcheck.test(m)) {
+                    document.getElementById('m1').innerHTML = "";
+                    p4.appendChild(ct4);
+                    df.appendChild(p4);
+
+                }
+                else {
+                    document.getElementById('m1').innerHTML = "enter correct email id"
+                }
+                if (mobilecheck.test(n)) {
+                    document.getElementById('n1').innerHTML = "";
+                    p5.appendChild(ct5);
+                    df.appendChild(p5);
+                }
+                else {
+                    document.getElementById('n1').innerHTML = "enter correct phone number"
+                }
+
+
+                //append fragment to div
+                divv.appendChild(df)
+                dd.appendChild(divv); //append created div to existing div
+                // console.log(dd)
+
+            }
+
+        }
+        function deletedata() {
+            var dt = document.getElementById("d2");
+
+            //  console.log(dt.childNodes)
+
+
+            dt.removeChild(dt.lastElementChild)
+
+
+        }
+
+    </script>
+</body>
+
+</html>

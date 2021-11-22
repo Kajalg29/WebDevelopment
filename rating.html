@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Rating</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #main{
+            width: 800px;
+            height: 500px;
+            border: 2px solid black;
+            text-align: center;
+        }
+        .blue{
+            color: cyan;
+           
+        }
+        .red{
+            color: red;
+            
+        }
+        
+        #btn{
+            color: white;
+            background-color: black;
+            width: 400px;
+            height: 30px;
+           margin-left: 200px;
+           margin-top: 100px;
+           padding: 10px;
+           font-weight: bold;
+            
+        }
+        li{
+            display: inline-block;
+            color: cyan;
+            text-align: center;
+            list-style: none;
+
+        }
+        .fa .fa-star-o{
+            color: cyan;
+        }
+        li:hover{
+            font-size: 20px;
+        }
+        .fix{
+            color: darkblue;
+
+        }
+       
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1 class="blue" style="font-style: italic;">Welcome To <span class="red">Movie Ratings</span></h1>
+        <h2 class="blue">Please Rate the <span class="red">Movie</span></h2>
+        <div>
+            <ul>
+                <li class="star"><i class="fa fa-star-o fa-3x"></i></li>
+                <li class="star"><i class="fa fa-star-o fa-3x"></i></li>
+                <li class="star"><i class="fa fa-star-o fa-3x"></i></li>
+                <li class="star"><i class="fa fa-star-o fa-3x"></i></li>
+                <li class="star"><i class="fa fa-star-o fa-3x"></i></li>
+            </ul>
+         </div>
+         <div id="btn">
+             
+         </div>
+        <script>
+           const stars=document.querySelectorAll('.star');
+           const text=document.querySelector('#btn');
+           for(i=0;i<stars.length;i++){
+            
+               stars[i].starValue=(i+1);
+               ["mouseover","mouseout","click"].forEach(function(e){
+                   stars[i].addEventListener(e,starRate);
+               })
+           }
+            function starRate(e){
+                let type=e.type;
+                let starValue=this.starValue;
+                if(type === "click"){
+                    if(starValue==1){
+                       var msg=prompt("Please tell us more about it")
+                        text.innerHTML=msg+ " and Rated "+starValue+" Thank you and have a nice Day";
+                    }
+                   else if(starValue==2){
+                       var msg=prompt("Please tell us more about it")
+                        text.innerHTML=msg+ " and Rated "+starValue+" Thank you and have a nice Day";
+                    }
+                   else if(starValue==3){
+                       var msg=prompt("Please tell us more about it")
+                        text.innerHTML=msg+ " and Rated "+starValue+" Thank you and have a nice Day";
+                    }
+                    else  if(starValue==4){
+                        text.innerHTML= " Rated "+starValue+" Thank you and have a nice Day";
+                    }
+                    else  if(starValue==5){
+                       
+                        text.innerHTML="Rated "+starValue+" Thank you and have a nice Day";
+                    }
+                }
+                
+                stars.forEach(function(ele,index){
+                    if(type=="click"){
+                      //  console.log(ele)
+                        if(index<starValue){
+                            ele.classList.add("fix")  
+                        }
+                        else{
+                            ele.classList.remove("fix")
+                        }
+                        
+                    }
+                   /* if(type==="mouseover"){
+                        if(index<starValue){
+                            ele.classList.add("over");
+                        }
+                        else{
+                            ele.classList.remove("over")
+                        }
+                    }
+                    if(type==="mouseout"){
+                        
+                            ele.classList.remove("over")
+                        
+                    }*/
+                })
+            }   
+             
+               
+    
+        </script>
+        
+        
+    </div>
+</body>
+</html>

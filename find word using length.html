@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find 3 letter word from string</title>
+</head>
+<body>
+    <script>
+        var str="Hello how are you";
+        var strArray=str.split(' ');//split string into array
+        console.log(strArray)
+        for(i=0;i<strArray.length;i++){
+            if(strArray[i].length==3){
+                document.write(strArray[i]+"<br>")
+            }
+        }
+    </script>
+</body>
+</html>

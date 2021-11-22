@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+<body>
+    <fieldset>
+        <legend> Booking Details</legend>
+        <form >
+            Movie: <select>
+                <option></option>
+                <option name="M1">Movie 1</option>
+                <option name="M2">Movie 2</option>
+                <option name="M3">Movie 3</option>
+            </select><br/><br>
+            Theaters: <select>
+                <option></option>
+                <option name="T1">Theater 1</option>
+                <option name="T2">Theater 2</option>
+                <option name="T3">Theater 3</option>
+            </select><br><br>
+            Date <input type="date" id="date"><br><br>
+            <p id="dmessage"></p>
+            Email <input type="email"id="email"><br><br>
+            <p id="emessage"></p>
+            Tickets <input type="number" id="ticket"><br><br>
+            <p id="message"></p>
+            <button type="button" onclick="myForm()">Book Tickets</button>
+        </form>
+    </fieldset>
+    <p>Per Ticket price=Rs 100.00</p>
+    <p>Discount:</p>
+    <ul> 
+        <li>10% Discount if number of booked shows >=10</li>
+    </ul>
+    <script>
+        function myForm(){
+            var tick=document.getElementById('ticket').value;
+            var date1=document.getElementById('date').value;
+            var email1=document.getElementById('email').value;
+            var emailcheck=/^[A-Za-z_.]{6,}@[A-Za-z]{4,}[.]{1}[A-Za-z.]{2,}$/;
+            // try{
+               
+            //     if(tick<1) throw "Valid ticket quantity must be enter";
+                
+            // }
+            // catch(err){
+            //     document.getElementById('message').innerHTML=err;
+            // }
+            
+            if(tick>=10){
+               var disc=tick*100;
+                document.getElementById('message').innerHTML="Total price: "+disc*0.90;
+            }
+            else if(tick>=1 || tick<10){
+                document.getElementById('message').innerHTML="Total price: "+tick*100;
+            }
+            if(emailcheck.test(email1)){
+                document.getElementById('emessage').innerHTML=" ";
+            }
+            else{
+                document.getElementById('emessage').innerHTML="Invalid mail id";
+            }
+            var date=new Date();
+            var cd=date.getDate();
+            var cm=date.getMonth()+1;
+            
+            var cy=date.getFullYear();
+            console.log(cy)
+            var newdate= new Date(date1); // user enter date
+            var ncd=newdate.getDate();
+            var ncm=newdate.getMonth()+1;
+           
+            var ncy=newdate.getFullYear();
+            console.log(ncy)
+           // document.getElementById('dmessage').innerHTML=ncd;
+            if(cd<=ncd && cd<=ncm && cd<=ncy){
+                  document.getElementById('dmessage').innerHTML=" ";
+          }
+           else{
+            document.getElementById('dmessage').innerHTML=" correct date must be enter";
+           }
+            
+             
+        }
+    </script>
+</body>
+</html>

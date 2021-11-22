@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ascending and descending order of array</title>
+</head>
+<body>
+    <script>
+        var arr=[90,100,10,20,40];
+        var temp;
+        //asscending order
+        for(i=0;i<arr.length;i++){
+            for(j=i+1;j<arr.length;j++){
+                if(arr[i]>arr[j]){
+                    temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                   // document.write(arr+"<br>")
+                }
+            }
+        }
+        document.write("Ascending order: "+arr+"<br>");
+
+       //descending order
+        for(i=0;i<arr.length;i++){
+            for(j=i+1;j<arr.length;j++){
+                if(arr[i]<arr[j]){
+                    temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+        }
+        document.write("Descending order: "+arr);
+    </script>
+</body>
+</html>

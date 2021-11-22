@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Rectangle</title>
+</head>
+<body>
+    <canvas id="myCanvas" style="border: 1px solid blue;" height="500px" width="500px"></canvas>
+    <script>
+        var c=document.getElementById("myCanvas");
+        var ctx=c.getContext("2d");
+        ctx.beginPath(); 
+       ctx.rect(0,0,500,500);
+        ctx.stroke();
+        ctx.fillStyle="blue";
+        ctx.fill();
+        ctx.beginPath()
+        ctx.rect(50,50,400,400);
+       ctx.stroke();
+        ctx.fillStyle="red";
+        ctx.fill();
+        ctx.beginPath()
+        ctx.rect(100,100,300,300);
+       ctx.stroke();
+        ctx.fillStyle="greenyellow";
+        ctx.fill();
+        ctx.beginPath()
+        ctx.rect(150,220,200,30);
+       ctx.stroke();
+        ctx.fillStyle="darkviolet";
+        ctx.fill();
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create function that takes age in year and return age in days</title>
+</head>
+
+<body>
+    <script>
+        function calculateDays(b_year) {
+
+            var cyear = new Date().getFullYear();
+            
+            var count=0;
+            for(i=b_year;i<=cyear;i++){
+                if(i%4==0){
+               count++;
+                }
+            }
+
+            yr = cyear - b_year;
+            b=yr-count;
+            agewl=b*365;
+            agel=count*366;
+            age=agewl+agel;
+
+
+            return age;
+            //return yr;
+        }
+        var Y = prompt("Enter Birth year")
+        var year = calculateDays(Y);
+        document.write("your age is: " + year);
+    </script>
+</body>
+
+</html>

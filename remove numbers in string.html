@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove numbers in String</title>
+</head>
+<body>
+    <script>
+        var str="J1av2asc6rip8t";
+        
+        // str=str.replace(/[0-9]/g, '');
+        // document.write(str+"<br>");
+        // for(i=0;i<str.length;i++){
+        //     if(str[i]=='J' || str[i]=='a' || str[i]=='v' || str[i]=='s'||str[i]=='c'||str[i]=='r'||str[i]=='i'||str[i]=='p'||str[i]=='t'){
+        //         document.write(str[i]);
+                
+        //     }
+        // }
+        for(i=0;i<str.length;i++){
+            for(j=0;j<str.length;j++){
+                if(str[i]==j){
+                    var str=str.replace(str[i],"")
+                    //document.write(str)
+                }
+            }       
+        
+        }
+        document.write(str);
+        
+    </script>
+</body>
+</html>

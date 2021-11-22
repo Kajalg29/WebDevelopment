@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formated Date</title>
+</head>
+<body>
+    <script>
+        var tarikh=new Date();
+        //document.write(tarikh);
+        var month=tarikh.setMonth(08);
+        var date=tarikh.setDate(26);
+        var year=tarikh.setFullYear(2020);
+        //document.write(tarikh);
+        document.write(tarikh.getMonth()+"/"+tarikh.getDate()+"/"+tarikh.getFullYear()+"<br>");
+        document.write(tarikh.getMonth()+"-"+tarikh.getDate()+"-"+tarikh.getFullYear()+"<br>");
+        document.write(tarikh.getDate()+"/"+tarikh.getMonth()+"/"+tarikh.getFullYear()+"<br>");
+    </script>
+</body>
+</html>

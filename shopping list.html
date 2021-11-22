@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+</head>
+
+<body>
+    <h1 align="center">
+        Shopping List
+    </h1>
+   <form>
+        <fieldset>
+            Enter Item Id <input type="text" id="id"><br><br>
+            Enter Item Name <input type="text" id="name"><br><br>
+            Enter Item Cost <input type="text" id="cost"><br><br>
+            Enter Item Quantity <input type="text" id="qnty"><br><br>
+            <input type="reset" value="New">
+            <input type="button" value="Save" onclick="saveItem();">
+            <input type="button" value="Update" onclick="updateItem();">
+            <input type="button" value="Delete" onclick="deleteItem();">
+        </fieldset>
+        <ul id="list"></ul>
+    </form>
+    <script>
+         var itemQnty, cq, newList=0, newli;
+        function saveItem(){
+            var itemId=document.getElementById("id").value;
+        var itemName=document.getElementById("name").value;
+        var itemCost=document.getElementById("cost").value;
+         itemQnty=document.getElementById("qnty").value;
+
+         newList=document.getElementById("list");
+          newli=document.createElement('li');
+         var ci=document.createTextNode(`${itemId} X `)
+         var cn=document.createTextNode(`${itemName} X `)
+         var cc=document.createTextNode(`${itemCost} X `)
+          cq=document.createTextNode(`${itemQnty}`)
+         // console.log(cq)
+         newli.appendChild(ci);
+         newli.appendChild(cn)
+         newli.appendChild(cc)
+         newli.appendChild(cq)
+         newList.appendChild(newli);
+         console.log(newli.childNodes[3])
+         
+         
+       // updateItem(cq);
+        }
+        function updateItem(){
+            var updateList = document.getElementById("list");
+            var upli=document.getElementsByTagName('li')[0].innerText;
+            
+                console.log(upli)
+        }
+       function deleteItem(){
+        var dt = document.getElementById("list");
+            var dp=document.getElementsByTagName('li')
+            console.log(dt.childNodes)
+          // console.log(dp)
+          dt.removeChild(dt.childNodes[1])
+           
+       }
+    </script>
+</body>
+
+</html>

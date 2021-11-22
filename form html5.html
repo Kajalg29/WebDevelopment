@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form HTML5</title>
+</head>
+<body>
+    <form>
+    <table border="2px solid black">
+        <tr>
+            <td>Enter Racer Name</td>
+            <td><input type="text" placeholder="FIRST NAME ONLY" required></td>
+        </tr>
+        <tr>
+            <td>Enter Email</td>
+            <td><input type="email" placeholder="abc@xyz.com" required></td>
+        </tr>
+        <tr>
+            <td>Enter Age</td>
+            <td><input type="text" placeholder="18-60 c" required></td>
+        </tr>
+        <tr>
+            <td>Enter Date of Birth</td>
+            <td><input type="date" required></td>
+        </tr>
+        <tr>
+            <td>Select Shirt style</td>
+            <td><select required>
+                <option></option>
+                <option>Formal</option>
+                <option>Casual</option>
+                <option>Sporty</option>
+                <option>Party</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>Confidence level: </td>
+            <td><span >0%</span><input type="range" value="0" max="100%" id="level"><span id="txt">0%</span></td>
+        </tr>
+        <tr>
+            <td><progress value="70" max="100"></progress></td>
+            <td style="border: 0px solid white;"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="Register"></td>
+            <td><input type="button" value="Skip"></td>
+        </tr>
+        <tr>
+            <td><p></p></td>
+            <td style="border: 0px solid white;"> </td>
+        </tr>
+    </table>
+    </form>
+    <script>
+        var rangeslide=document.getElementById("level");
+       // console.log(rangeslide.value)
+        var text=document.getElementById("txt");
+        text.innerHTML=rangeslide.value;
+        rangeslide.oninput=function(){
+            text.innerHTML=this.value+"%";
+        }
+
+
+    </script>
+</body>
+</html>

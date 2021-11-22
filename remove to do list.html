@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <style>
+        #div1 {
+            text-align: center;
+            width: 650px;
+            border: 2px solid yellow;
+            margin-left: 400px;
+            padding: 20px;
+
+        }
+
+        #div2 {
+            text-align: left;
+            width: 850px;
+            margin-left: 400px;
+
+
+        }
+
+        p {
+            background-color: lightgrey;
+            width: 660px;
+            list-style-type: none;
+            margin-left: 0px;
+            height: 30px;
+            font-size: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <h2>To Do list</h2>
+        <input type="text" id="txt" placeholder="Enter item">
+        <button id="btn" onclick="appendList()">Add</button>
+        <button id="delbtn" onclick="deleteList()">Delete</button>
+    </div>
+    <div id="div2">
+
+    </div>
+    <script>
+        var newlist;
+        function appendList() {
+            var t = document.getElementById("txt").value;
+            var ul = document.getElementById("div2");
+            var list = document.createElement('p');
+            console.log(list);
+            var tNode = document.createTextNode(t)
+            //console.log(tNode);
+            list.appendChild(tNode)
+            //console.log(t)
+            if (t == '') {
+                alert("please enter text")
+            }
+            else{
+                 newlist = ul.appendChild(list)
+            }
+            
+        }
+
+        function deleteList() {
+            var dt = document.getElementById("div2");
+            var dp=document.getElementsByTagName('p')
+            console.log(dt.childNodes)
+          // console.log(dp)
+          dt.removeChild(dt.childNodes[1])
+           
+            
+        }
+
+    </script>
+</body>
+
+</html>

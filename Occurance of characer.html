@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>occurance code and charcode</title>
+</head>
+<body>
+    <script>
+        var str="We are learning string object";
+        var len=str.length;
+        var count=0;
+        //document.write(len)
+        //document.write(str.indexof("e"));
+        for(i=0;i<len;i++){
+                //document.write(len[i])
+                if(str.charAt(i)=="t"){
+                    count++;
+                }
+        }
+        document.write("Occurance of t is: "+count);  
+    
+    </script>
+</body>
+</html>
